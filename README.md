@@ -1,4 +1,4 @@
-A tiny Svelte component library specifically written for usage in [Obsidian](https://obsidian.md/) plugins.
+A _tiny_ Svelte component library specifically written for usage in [Obsidian](https://obsidian.md/) plugins.
 This is just a refactor of the components I use in the [Obsidian Translate](https://github.com/Fevol/obsidian-translate) plugin,
 so I have one unified library to use in all my plugins.
 
