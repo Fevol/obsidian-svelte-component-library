@@ -1,0 +1,57 @@
+.svelcomlib-spinner {
+	width: var(--size-4-4);
+	height: var(--size-4-4);
+	border: 3px solid initial;
+	border-bottom-color: transparent;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: translator-rotation 1.5s linear infinite;
+}
+
+.svelcomlib-icon-text {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.svelcomlib-icon-text > * {
+	display: flex;
+}
+
+.svelcomlib-toggle {
+	justify-content: space-between;
+}
+
+button.svelcomlib-success {
+	background-color: var(--color-green);
+	color: var(--text-on-accent);
+}
+
+button.svelcomlib-fail {
+	background-color: var(--background-modifier-error);
+	color: var(--text-on-accent);
+}
+
+.svelcomlib-fail > * {
+	color: var(--text-on-accent);
+}
+
+
+.svelcomlib-input-success {
+	color: var(--color-green);
+	border-color: var(--color-green);
+	border-width: 3px;
+}
+
+.svelcomlib-input-fail {
+	color: var(--text-error);
+	border-color: var(--background-modifier-error);
+	border-width: 3px;
+}
+
+.svelcomlib-input-icon {
+	display: flex;
+	position: absolute;
+	background-color: var(--background-modifier-error);
+}
