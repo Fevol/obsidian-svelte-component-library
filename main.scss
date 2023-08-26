@@ -1,12 +1,43 @@
 .svelcomlib-spinner {
 	width: var(--size-4-4);
 	height: var(--size-4-4);
-	border: 3px solid initial;
+	border: 3px solid;
+	border-color: initial;
 	border-bottom-color: transparent;
 	border-radius: 50%;
 	display: inline-block;
 	box-sizing: border-box;
-	animation: translator-rotation 1.5s linear infinite;
+	animation: svelcomlib-spinner-animation 1.5s linear infinite;
+}
+
+@keyframes svelcomlib-spinner-animation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.svelcomlib-skeleton-placeholder {
+	background-color: var(--color-base-30);
+
+	&::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		animation: svelcomlib-skeleton-animation 1.5s ease-in-out infinite;
+		background: linear-gradient(
+			90deg,
+			rgba(255, 255, 255, 0),
+			var(--color-base-25),
+			rgba(255, 255, 255, 0)
+		);
+		background-size: 200px 100%;
+		background-repeat: no-repeat;
+		border-radius: 4px;
+	}
 }
 
 .svelcomlib-icon-text {
