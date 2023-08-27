@@ -21,6 +21,10 @@ import {
 	View,
 } from "./obsidian";
 
+import {
+	clickOutside
+} from './scripts';
+
 export {
 	Button,
 	ButtonList,
@@ -38,4 +42,6 @@ export {
 	ToggleButton,
 	ValidateInput,
 	View,
+
+	clickOutside
 }
