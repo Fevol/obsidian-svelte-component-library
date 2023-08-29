@@ -11,6 +11,7 @@ import {
 	Toggle,
 	ToggleButton,
 	ValidateInput,
+	VirtualList,
 } from "./base";
 
 
@@ -42,6 +43,7 @@ export {
 	ToggleButton,
 	ValidateInput,
 	View,
+	VirtualList,
 
 	clickOutside
 }

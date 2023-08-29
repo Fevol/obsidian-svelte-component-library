@@ -15,7 +15,7 @@ import Spinner from "./Spinner.svelte";
 import StateButton from "./StateButton.svelte";
 import ToggleButton from "./ToggleButton.svelte";
 import ValidateInput from "./ValidateInput.svelte";
-
+import VirtualList from "./VirtualList.svelte";
 
 export {
 	Button,
@@ -30,4 +30,5 @@ export {
 	Toggle,
 	ToggleButton,
 	ValidateInput,
+	VirtualList
 }

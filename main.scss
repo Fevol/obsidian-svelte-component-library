@@ -86,3 +86,19 @@ button.svelcomlib-fail {
 	position: absolute;
 	background-color: var(--background-modifier-error);
 }
+
+
+.svelcomlib-virtual-list-viewport {
+	position: relative;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling:touch;
+	display: block;
+}
+
+.svelcomlib-virtual-list-contents, .svelcomlib-virtual-list-row {
+	display: block;
+}
+
+.svelcomlib-virtual-list-row {
+	overflow: hidden;
+}
