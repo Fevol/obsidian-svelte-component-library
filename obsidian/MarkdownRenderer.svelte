@@ -5,11 +5,12 @@
 
 	export let plugin: CommentatorPlugin;
 	export let text: string;
+	export let source: string = '';
 	let element: HTMLElement;
 
 	onMount(async () => {
 		const component = new Component();
-		await MarkdownRenderer.render(plugin.app, text, element, '', component);
+		await MarkdownRenderer.render(plugin.app, text, element, source, component);
 		component.load();
 	})
 </script>
