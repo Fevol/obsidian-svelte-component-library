@@ -14,10 +14,13 @@
 	export let onContextMenu: (e: Event) => void = () => {};
 </script>
 
-<div class={$$props.class + ' svelcomlib-icon-text'} aria-label={states[value].tooltip} on:click={() => {
-	value = (value + 1) % states.length;
-	onClick();
-}} on:contextmenu={onContextMenu}>
+<div class={$$props.class + ' svelcomlib-icon-text'} aria-label={states[value].tooltip}
+	on:click={() => {
+		value = (value + 1) % states.length;
+		onClick();
+	}}
+	on:contextmenu={onContextMenu}
+>
 	{#if states[value].icon}
 		<Icon icon={states[value].icon} {size}/>
 	{/if}
