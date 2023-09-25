@@ -15,4 +15,4 @@
 	})
 </script>
 
-<div bind:this={element} />
+<div bind:this={element} class={$$props.class}></div>
