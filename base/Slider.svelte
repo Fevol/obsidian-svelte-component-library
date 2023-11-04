@@ -15,6 +15,17 @@
 	{min}
 	{max}
 	{step}
-	on:change={() => onChange(value)}
+	on:input={(e) => {
+		const tooltip_el = document.body.lastChild;
+		console.log(e.target.valueAsNumber)
+		if (tooltip_el.classList.contains("tooltip"))
+			tooltip_el.firstChild.textContent = e.target.valueAsNumber.toString();
+	}}
+	on:change={(e) => {
+		onChange(e.target.valueAsNumber);
+	}}
+
+	aria-label={value.toString()}
+	data-tooltip-position="top"
 />
 
