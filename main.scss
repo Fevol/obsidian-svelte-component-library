@@ -102,3 +102,36 @@ button.svelcomlib-fail {
 .svelcomlib-virtual-list-row {
 	overflow: hidden;
 }
+
+.svelcomlib-notice {
+}
+
+.svelcomlib-notice > code {
+	background-color: var(--code-background);
+	color: var(--code-normal);
+}
+
+.svelcomlib-notice-info {
+	color: var(--text-accent);
+}
+
+.svelcomlib-notice-info::before {
+	content: "ⓘ ";
+}
+
+.svelcomlib-notice-warning {
+	color: var(--text-error);
+}
+
+.svelcomlib-notice-warning::before {
+	content: "⚠ ";
+}
+
+.svelcomlib-notice-error {
+	color: var(--text-error);
+	font-weight: bold;
+}
+
+.svelcomlib-notice-error::before {
+	content: "⛔ ";
+}

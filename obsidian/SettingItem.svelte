@@ -9,7 +9,7 @@
 		 * The URL to link to.
 		 */
 		url?: string;
-		type?: "href" | "text";
+		type?: "info" | "warning" | "error";
 
 		/**
 		 * The text to display.
@@ -26,7 +26,7 @@
 </script>
 
 <div
-	class={$$props.class + " setting-item"}
+	class={($$props.class ?? "") + " setting-item"}
 	class:mod-dropdown={type === "dropdown"}
 	class:mod-toggle={type === "toggle"}
 	class:mod-slider={type === "slider"}
@@ -39,32 +39,22 @@
 			</div>
 		</div>
 			<div class="setting-item-description">
-				{#if description}
-					{@html description}
-					{#each notices as notice}
-						{#if notice}
+				{@html description}
+				{#each notices as notice, idx}
+					{#if notice}
+						{#if description || idx !== 0}
 							<br>
-							{#if notice.type === "href"}
-								<a href={notice.url}> {notice.text} </a>
-							{:else}
-								<span class={notice.style}> {@html notice.text} </span>
-							{/if}
 						{/if}
-					{/each}
-				{:else}
-					{#each notices as notice, idx}
-						{#if notice}
-							{#if notice.type === "href"}
-								<a href={notice.url}> {notice.text} </a>
-							{:else}
-								<span class={notice.style}> {@html notice.text} </span>
-							{/if}
-							{#if idx < notices.length - 1}
-								<br>
-							{/if}
-						{/if}
-					{/each}
-				{/if}
+						<span
+							class={"svelcomlib-notice " + (notice.style ?? "")}
+							class:svelcomlib-notice-info={notice.type === "info"}
+							class:svelcomlib-notice-warning={notice.type === "warning"}
+							class:svelcomlib-notice-error={notice.type === "error"}
+						>
+							{@html notice.text}
+						</span>
+					{/if}
+				{/each}
 			</div>
 
 	</div>

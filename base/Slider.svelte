@@ -1,7 +1,7 @@
 <script lang="ts">
-	export let min: number = 1;
-	export let max: number = 100;
-	export let step: number = 1;
+	export let min: number;
+	export let max: number;
+	export let step: number;
 	export let value: number;
 	export let onChange: (value: number) => void;
 </script>
@@ -11,18 +11,21 @@
 	type="range"
 	class="slider"
 
-	{value}
+	bind:value={value}
 	{min}
 	{max}
 	{step}
-	on:input={(e) => {
+	on:input={() => {
 		const tooltip_el = document.body.lastChild;
-		console.log(e.target.valueAsNumber)
-		if (tooltip_el.classList.contains("tooltip"))
-			tooltip_el.firstChild.textContent = e.target.valueAsNumber.toString();
+		if (tooltip_el.classList.contains("tooltip")) {
+			// Manually grabbing the tooltip and forcefully updating it, as I do not have the proper reference to it
+			// Note: width="auto" is necessary, as width is exactly set, and sometimes the text overflows
+			tooltip_el.firstChild.textContent = `${value}`;
+			tooltip_el.style.width = "auto";
+		}
 	}}
 	on:change={(e) => {
-		onChange(e.target.valueAsNumber);
+		onChange(value);
 	}}
 
 	aria-label={value.toString()}
