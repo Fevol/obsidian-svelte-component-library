@@ -4,6 +4,14 @@
 	export let disabled: boolean = false;
 </script>
 
-<div class="checkbox-container" class:is-enabled={value} on:click={() => !disabled && onChange(!value)}>
-	<input type="checkbox" tabindex="0" {disabled}/>
+<div
+	class="checkbox-container"
+	class:is-enabled={value}
+	on:click={() => !disabled && onChange(!value)}
+>
+	<input
+			type="checkbox"
+			tabindex="0"
+			{disabled}
+	/>
 </div>

@@ -2,7 +2,7 @@
 	export let name: string;
 	export let description: string | null = null;
 	export let type: "dropdown" | "toggle" | "slider" | "heading" | null = null;
-
+	export let subsetting: boolean = false;
 
 	interface InformationField {
 		/**
@@ -31,6 +31,7 @@
 	class:mod-toggle={type === "toggle"}
 	class:mod-slider={type === "slider"}
 	class:setting-item-heading={type === "heading"}
+	class:svelcomlib-subsetting={subsetting}
 >
 	<div class="setting-item-info">
 		<div class="setting-item-name">
