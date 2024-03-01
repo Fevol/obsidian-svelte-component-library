@@ -1,3 +1,4 @@
+// TODO: Find more efficient way to do this (10us per event handling)
 export function clickOutside(node: HTMLElement, ignore?: string) {
 	const handleClick = (event: Event) => {
 		const target = event.target as HTMLElement;
