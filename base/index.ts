@@ -7,8 +7,6 @@ import Slider from "./Slider.svelte";
 import TextArea from "./TextArea.svelte";
 import Toggle from "./Toggle.svelte";
 
-
-
 // Advanced Components (custom components for different tasks)
 import ButtonList from "./ButtonList.svelte";
 import Spinner from "./Spinner.svelte";
@@ -30,5 +28,5 @@ export {
 	Toggle,
 	ToggleButton,
 	ValidateInput,
-	VirtualList
-}
+	VirtualList,
+};

@@ -11,4 +11,4 @@ export {
 	NavHeader,
 	SettingItem,
 	View,
-}
+};

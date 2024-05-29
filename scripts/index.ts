@@ -1,5 +1,5 @@
-import { clickOutside } from './click_outside';
+import { clickOutside } from "./click_outside";
 
 export {
-	clickOutside
-}
+	clickOutside,
+};

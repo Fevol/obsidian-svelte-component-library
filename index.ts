@@ -14,7 +14,6 @@ import {
 	VirtualList,
 } from "./base";
 
-
 import {
 	MarkdownRenderer,
 	NavHeader,
@@ -23,12 +22,13 @@ import {
 } from "./obsidian";
 
 import {
-	clickOutside
-} from './scripts';
+	clickOutside,
+} from "./scripts";
 
 export {
 	Button,
 	ButtonList,
+	clickOutside,
 	Dropdown,
 	Icon,
 	Input,
@@ -44,6 +44,4 @@ export {
 	ValidateInput,
 	View,
 	VirtualList,
-
-	clickOutside
-}
+};

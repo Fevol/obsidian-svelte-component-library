@@ -6,14 +6,14 @@ export function clickOutside(node: HTMLElement, ignore?: string) {
 			return;
 
 		if (node && !node.contains(target) && !event.defaultPrevented)
-			node.dispatchEvent(new CustomEvent('click_outside'));
-	}
+			node.dispatchEvent(new CustomEvent("click_outside"));
+	};
 
-	document.addEventListener('click', handleClick, true);
+	document.addEventListener("click", handleClick, true);
 
 	return {
 		destroy() {
-			document.removeEventListener('click', handleClick, true);
-		}
+			document.removeEventListener("click", handleClick, true);
+		},
 	};
 }
