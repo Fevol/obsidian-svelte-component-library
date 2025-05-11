@@ -1,9 +1,13 @@
 <script lang="ts">
-  export let size: number;
+    interface Props {
+        size?: number;
+    }
+
+    let {size = 24}: Props = $props();
 </script>
 
 <div
-  class="svelcomlib-spinner"
-  bind:clientHeight={size}
-  bind:clientWidth={size}
-/>
+    class="svelcomlib-spinner"
+    bind:clientHeight={size}
+    bind:clientWidth={size}
+></div>

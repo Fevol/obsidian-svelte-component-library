@@ -1,18 +1,23 @@
 <script lang="ts">
   import { Icon } from "./index";
 
-  export let text: string = "";
-  export let icon: string = "";
-  export let tooltip: string = "";
-  export let size: number | null = null;
-  export let onClick: () => void;
+  interface Props {
+    text?: string;
+    icon?: string;
+    tooltip?: string;
+    size?: number | null;
+    onClick?: () => void;
+    class?: string;
+  }
+
+  let { text = "", icon = "", tooltip = "", size = null, onClick = () => {}, class: className = "" }: Props = $props();
 </script>
 
 <button
-  class={$$props.class}
+  class={className}
   class:svelcomlib-icon-text={icon}
   aria-label={tooltip}
-  on:click={onClick}
+  onclick={onClick}
 >
   {#if text}
     <div>{text}</div>

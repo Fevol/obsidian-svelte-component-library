@@ -1,14 +1,18 @@
 <script lang="ts">
   import { Icon } from "./index";
 
-  export let type: string;
-  export let value: string;
-  export let placeholder: string = "";
-  export let onChange: (value: string) => void;
-  export let valid: boolean;
+    interface Props {
+        type: string;
+        value: string;
+        placeholder?: string;
+        onChange: (value: string) => void;
+        valid?: boolean;
+    }
+
+    let { type = "text", value = "", placeholder = "", onChange = () => {}, valid = false }: Props = $props();
 </script>
 
 <div>
   <Icon icon={valid ? "check" : "cross"} class="svelcomlib-input-icon" />
-  <input {type} {value} {placeholder} on:input={() => onChange(value)} />
+  <input {type} {value} {placeholder} oninput={() => onChange(value)} />
 </div>

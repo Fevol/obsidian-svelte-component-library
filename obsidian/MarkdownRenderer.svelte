@@ -1,12 +1,17 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { Component, MarkdownRenderer } from "obsidian";
-  import type CommentatorPlugin from "../../../main";
+  import { Component, MarkdownRenderer, Plugin } from "obsidian";
 
-  export let plugin: CommentatorPlugin;
-  export let text: string;
-  export let source: string = "";
-  let element: HTMLElement;
+  interface Props {
+    plugin: Plugin;
+    text: string;
+    source?: string;
+    class?: string;
+  }
+
+  let { plugin, text, source = "", class: className = "" }: Props = $props();
+
+  let element: HTMLElement = $state();
 
   onMount(async () => {
     const component = new Component();
@@ -15,4 +20,4 @@
   });
 </script>
 
-<div bind:this={element} class={$$props.class}></div>
+<div bind:this={element} class={className}></div>

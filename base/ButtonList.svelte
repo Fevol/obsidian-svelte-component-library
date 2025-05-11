@@ -6,12 +6,23 @@
     text: string;
   }
 
-  export let onClick: (value: string, index: number) => void;
-  export let items: IOption[] = [];
-  export let icon: string;
-  export let tooltip: string | null = null;
-  export let disabled: boolean = false;
-  export let size: number | null = null;
+  interface Props {
+    onClick: (value: string, index: number) => void;
+    items: IOption[];
+    icon: string;
+    tooltip?: string | null;
+    disabled?: boolean;
+    size?: number | null;
+  }
+
+  let {
+    onClick = () => {},
+    items = [],
+    icon = "",
+    tooltip = null,
+    disabled = false,
+    size = null,
+  }: Props = $props();
 </script>
 
 <div class="setting-command-hotkeys">
@@ -20,7 +31,7 @@
       {text}
       {#if !disabled}
         <span
-          on:click={() => onClick(value, index)}
+          onclick={() => onClick(value, index)}
           class="setting-hotkey-icon"
           style="display: flex"
           aria-label={tooltip}

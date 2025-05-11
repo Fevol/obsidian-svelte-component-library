@@ -1,11 +1,21 @@
 <script lang="ts">
-  export let min: number;
-  export let max: number;
-  export let step: number;
-  export let value: number;
-  export let onChange: (value: number) => void;
-  export let getTooltip: (value: number) => string = (value: number) =>
-    value.toString();
+  interface Props {
+    min: number;
+    max: number;
+    step: number;
+    value: number;
+    onChange: (value: number) => void;
+    getTooltip?: (value: number) => string;
+  }
+
+    let {
+        min = 0,
+        max = 100,
+        step = 1,
+        value = 0,
+        onChange = () => {},
+        getTooltip = (value: number) => value.toString(),
+    }: Props = $props();
 </script>
 
 <input
@@ -15,7 +25,7 @@
   {min}
   {max}
   {step}
-  on:input={() => {
+  oninput={() => {
     const tooltip_el = document.body.lastChild;
     if (tooltip_el.classList.contains("tooltip")) {
       // Manually grabbing the tooltip and forcefully updating it, as I do not have the proper reference to it
@@ -24,7 +34,7 @@
       tooltip_el.style.width = "auto";
     }
   }}
-  on:change={(e) => {
+  onchange={(_) => {
     onChange(value);
   }}
   aria-label={getTooltip(value)}

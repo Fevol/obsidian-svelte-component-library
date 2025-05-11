@@ -1,13 +1,25 @@
 <script lang="ts">
-  export let value: boolean;
-  export let onChange: (value: boolean) => void;
-  export let disabled: boolean = false;
+    interface Props {
+        value: boolean;
+        onChange: (value: boolean) => void;
+        disabled?: boolean;
+    }
+
+    let {
+        value = false, onChange = () => {},
+        disabled = false
+    }: Props = $props();
 </script>
 
 <div
-  class="checkbox-container"
-  class:is-enabled={value}
-  on:click={() => !disabled && onChange(!value)}
+        class="checkbox-container"
+        class:is-enabled={value}
+        onclick={() => {
+            if (!disabled) {
+                onChange(!value)}
+                value = !value;
+            }
+        }
 >
-  <input type="checkbox" tabindex="0" {disabled} />
+    <input type="checkbox" tabindex="0" {disabled}/>
 </div>

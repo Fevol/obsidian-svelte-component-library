@@ -1,12 +1,26 @@
 <script lang="ts">
   import type { HTMLInputTypeAttribute } from "svelte/elements";
 
-  export let type: HTMLInputTypeAttribute;
-  export let value: string;
-  export let placeholder: string = "";
-  export let onChange: (value: string) => void = () => {};
-  export let valid: boolean = false;
-  export let readonly: boolean = false;
+  interface Props {
+    type: HTMLInputTypeAttribute;
+    value: string;
+    placeholder?: string;
+    onChange?: (value: string) => void;
+    valid?: boolean;
+    readonly?: boolean;
+    class?: string;
+  }
+
+    let {
+        type = "text",
+        value = "",
+        placeholder = "",
+        onChange = () => {},
+        valid = false,
+        readonly = false,
+        class: className = ""
+    }: Props = $props();
+
 </script>
 
 <!--TODO: value keyword is still an issue-->
@@ -15,8 +29,8 @@
   {value}
   {placeholder}
   {readonly}
-  on:input={(e) => onChange(e.target.value)}
-  class={$$props.class}
+  oninput={(e) => onChange(e.target.value)}
+  class={className}
   class:svelcomlib-input-success={valid}
   class:svelcomlib-input-fail={valid === false}
 />

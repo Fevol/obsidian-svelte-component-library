@@ -1,23 +1,29 @@
 <script lang="ts">
-  export let value: string;
-  export let readonly: boolean = false;
-  export let placeholder: string = "";
+  interface Props {
+    value: string;
+    readonly?: boolean;
+    placeholder?: string;
 
-  export let onChange: (value: string) => void;
-  export let onContextmenu: (e: Event) => void;
+    onChange: (value: string) => void;
+    onContextmenu: (e: Event) => void;
+
+    class?: string;
+  }
+
+    let { value = "", readonly = false, placeholder = "", onChange = () => {}, onContextmenu = () => {}, class: className = "" }: Props = $props();
 </script>
 
 <textarea
-  class={$$props.class}
+  class={className}
   {readonly}
   {placeholder}
   {value}
-  on:change={() => {
+  onchange={() => {
     onChange(value);
   }}
-  on:contextmenu={(e) => {
+  oncontextmenu={(e) => {
     onContextmenu(e);
     e.preventDefault();
     return false;
   }}
-/>
+></textarea>

@@ -4,16 +4,28 @@
     value: string;
     text: string;
   }
-  export let onChange: (value: string, el: HTMLSelectElement) => void;
-  export let options: IOption[] = [];
-  export let value: string;
-  export let disabled: boolean = false;
+
+  interface Props {
+    onChange: (value: string, el: HTMLSelectElement) => void;
+    options: IOption[];
+    value: string;
+    disabled?: boolean;
+    class?: string;
+  }
+
+    let {
+        onChange = () => {},
+        options = [],
+        value = "",
+        disabled = false,
+        class: className = ""
+    }: Props = $props();
 </script>
 
 <select
-  class={$$props.class ? $$props.class + " dropdown" : "dropdown"}
+  class={className ? className + " dropdown" : "dropdown"}
   {disabled}
-  on:change={(e) => onChange(e.target.value, e.target)}
+  onchange={(e) => onChange(e.target.value, e.target)}
   {value}
 >
   {#each options as { value, text }}

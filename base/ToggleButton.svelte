@@ -1,32 +1,37 @@
 <script lang="ts">
-  import { Icon, Spinner } from "./index";
+    import {Icon, Spinner} from "./index";
 
-  export let value: boolean | null = null;
-  export let text: string;
-  export let size: number | null = null;
-  export let onToggle: () => Promise<boolean>;
+    interface Props {
+        value: boolean | null;
+        text: string;
+        size?: number | null;
+        onToggle: () => Promise<boolean>;
+    }
 
-  let running: boolean = false;
+    let {value = null, text = "", size = null, onToggle = () => Promise.resolve(false)}: Props =
+        $props();
+
+    let running: boolean = $state(false);
 </script>
 
 <button
-  class="svelcomlib-icon-text svelcomlib-toggle"
-  class:svelcomlib-success={value}
-  class:svelcomlib-fail={value === false}
-  on:click={async () => {
-    value = null;
-    running = true;
-    value = await onToggle();
-    running = false;
-  }}
+        class="svelcomlib-icon-text svelcomlib-toggle"
+        class:svelcomlib-success={value}
+        class:svelcomlib-fail={value === false}
+        onclick={async () => {
+            value = null;
+            running = true;
+            value = await onToggle();
+            running = false;
+        }}
 >
-  <div>{text}</div>
-  {#if running}
-    <Spinner {size} />
-  {:else}
-    <Icon
-      icon={value === null ? "question-mark-glyph" : value ? "check" : "cross"}
-      {size}
-    />
-  {/if}
+    <div>{text}</div>
+    {#if running}
+        <Spinner {size}/>
+    {:else}
+        <Icon
+                icon={value === null ? "question-mark-glyph" : value ? "check" : "cross"}
+                {size}
+        />
+    {/if}
 </button>
