@@ -24,6 +24,7 @@
     let top = $state(0);
     let bottom = $state(0);
     let average_height: number = $state(0);
+    let scrolltop: number = $state(0);
 
     let visible = $derived(items.slice(start, end).map((data, i) => {
         return {index: i + start, data};
@@ -76,6 +77,7 @@
 
     async function handle_scroll() {
         const {scrollTop} = viewport;
+        scrolltop = scrollTop;
 
         // const old_start = start;
 
@@ -150,7 +152,7 @@
     <div
             class="svelcomlib-virtual-list-contents"
             bind:this={contents}
-            style="padding-top: {top}px; padding-bottom: {bottom}px;"
+            style="padding-top: {top}px; padding-bottom: {bottom}px; --scroll-offset: {scrolltop}px"
     >
         {#each visible as row (row.index)}
             <div class="svelcomlib-virtual-list-row">
