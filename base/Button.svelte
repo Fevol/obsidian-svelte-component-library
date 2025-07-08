@@ -6,7 +6,7 @@
     icon?: string;
     tooltip?: string;
     size?: number | null;
-    onClick?: () => void;
+    onClick?: (evt: MouseEvent) => void;
     class?: string;
   }
 
