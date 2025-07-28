@@ -9,11 +9,11 @@ export function clickOutside(node: HTMLElement, ignore?: string) {
 			node.dispatchEvent(new CustomEvent("click_outside"));
 	};
 
-	document.addEventListener("click", handleClick, true);
+	node.doc.addEventListener("click", handleClick, true);
 
 	return {
 		destroy() {
-			document.removeEventListener("click", handleClick, true);
+			node.doc.removeEventListener("click", handleClick, true);
 		},
 	};
 }

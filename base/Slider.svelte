@@ -26,7 +26,7 @@
   {max}
   {step}
   oninput={() => {
-    const tooltip_el = document.body.lastChild;
+    const tooltip_el = activeDocument.body.lastChild;
     if (tooltip_el.classList.contains("tooltip")) {
       // Manually grabbing the tooltip and forcefully updating it, as I do not have the proper reference to it
       // Note: width="auto" is necessary, as width is exactly set, and sometimes the text overflows
